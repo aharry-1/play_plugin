@@ -1,0 +1,2 @@
+# play_plugin
+自用nonebot2QQ群发送特点语音插件，使用nas储存上传的音频文件
