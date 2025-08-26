@@ -3,3 +3,5 @@
 
 ![3LKSZQ)RG6_Q` }O5T2REHY](https://github.com/user-attachments/assets/d2f9874d-d529-48e1-a4ad-8b792e9998c0)
 
+
+直接下载play可以用我的nas，虽然说不定那天就无了
