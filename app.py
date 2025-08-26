@@ -7,17 +7,24 @@ app = Flask(__name__)
 # 共享文件夹路径
 SHARED_FOLDER_PATH = '/volume2/aaa/play'
 
+# 需要忽略的文件列表
+IGNORED_FILES = ['app.py', 'nohup.log']
+
 def list_files():
-    """列出共享文件夹中的所有文件"""
+    """列出共享文件夹中的所有文件，忽略特定文件"""
     try:
         files = os.listdir(SHARED_FOLDER_PATH)
-        # 过滤掉隐藏文件和非文件项
-        return [f for f in files if os.path.isfile(os.path.join(SHARED_FOLDER_PATH, f)) and not f.startswith('.')]
+        # 过滤掉隐藏文件、非文件项和需要忽略的文件
+        return [f for f in files if (
+            os.path.isfile(os.path.join(SHARED_FOLDER_PATH, f)) and 
+            not f.startswith('.') and
+            f not in IGNORED_FILES
+        )]
     except Exception as e:
         return f"错误: {str(e)}"
 
 def search_files(pattern):
-    """搜索匹配模式的文件"""
+    """搜索匹配模式的文件，忽略特定文件"""
     try:
         all_files = list_files()
         if isinstance(all_files, str):  # 如果返回的是错误信息
